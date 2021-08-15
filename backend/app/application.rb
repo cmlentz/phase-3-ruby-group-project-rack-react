@@ -28,9 +28,8 @@ class Application
 
     end
 
-
     # Create
-    if req.path.match('/single_fishes') && req.post?
+    if req.path.match(/single_fishes/) && req.post?
       body = JSON.parse(req.body.read)
       single_fishes = SingleFish.create(body)
       return [201, {'Content-Type' => 'application/json'}, [single_fishes.to_json]]
